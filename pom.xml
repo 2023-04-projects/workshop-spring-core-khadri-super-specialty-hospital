@@ -7,5 +7,6 @@
   <modules>
     <module>pharmacy-module</module>
     <module>doctor-module</module>
+    <module>container-module</module>
   </modules>
 </project>
