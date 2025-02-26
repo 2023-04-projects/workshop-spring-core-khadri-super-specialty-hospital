@@ -8,6 +8,7 @@ import com.khadri.spring.core.doctor.Doctor;
 
 @Component
 public class DoctorDetails {
+
 	private List<Doctor> doctors;
 
 	public DoctorDetails(List<Doctor> doctors) {

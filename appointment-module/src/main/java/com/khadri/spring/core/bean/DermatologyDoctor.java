@@ -1,23 +1,26 @@
 package com.khadri.spring.core.bean;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.khadri.spring.core.doctor.Doctor;
 
+import lombok.Getter;
+
 @Component
+@Getter
 public class DermatologyDoctor implements Doctor {
 
-	private String name = "1.Dr.Allen (Dermotology)";
-	private int experience = 15;
+	@Value("1")
+	private int id;
 
-	@Override
-	public String getName() {
-		return name;
-	}
+	@Value("Dr.Allen")
+	private String name;
+	
+	@Value("Determotologist")
+	private String Speciatlist;
 
-	@Override
-	public int getExperience() {
-		return experience;
-	}
+	@Value(value = "10")
+	private int experience;
 
 }

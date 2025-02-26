@@ -1,9 +1,13 @@
 package com.khadri.spring.core.doctor;
 
 public interface Doctor {
+
+	int getId();
+
+	String getName();
 	
-	public String getName();
-	public int getExperience();
-	
+	String getSpeciatlist();
+
+	int getExperience();
 
 }

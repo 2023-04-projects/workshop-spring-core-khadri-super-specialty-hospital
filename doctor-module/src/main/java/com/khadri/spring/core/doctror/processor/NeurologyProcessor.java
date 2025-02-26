@@ -3,18 +3,18 @@ package com.khadri.spring.core.doctror.processor;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
-import com.khadri.spring.core.doctor.Doctor;
+import com.khadri.spring.core.doctor.SpecialistDoctor;
 import com.khadri.spring.core.prescription.Prescription;
 import com.khadri.spring.core.process.OutPatientProcessor;
 import com.khadri.spring.core.processor.InPatientProcessor;
 
-@Component("neuroprocessor")
-public class NeurologyProcessor implements Doctor {
+public class NeurologyProcessor implements SpecialistDoctor {
 
 	private InPatientProcessor inPatientProcessor;
+
 	private OutPatientProcessor outPatientProcessor;
+
 	private Prescription prescription;
 
 	@Autowired
@@ -23,13 +23,14 @@ public class NeurologyProcessor implements Doctor {
 		this.inPatientProcessor = inPatientProcessor;
 		this.outPatientProcessor = outPatientProcessor;
 		this.prescription = prescription;
+
 	}
 
-	public void checkup(Scanner scanner) {
-
+	public void checkup() {
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Neurology Checkup Started...");
 		System.out.println("How long have you been suffering? (in days):");
-		int days = scanner.nextInt();
+		int days =11; // hardcoded here but need to read as a input from user
 
 		if (days > 10) {
 			System.out.println("Patient has been suffering for a long time. Advanced treatment required.");
@@ -38,6 +39,8 @@ public class NeurologyProcessor implements Doctor {
 			System.out.println("you will be treated as an outPatient.");
 			outPatientProcessor.process(prescription);
 		}
+		
+		scanner.close();
 
 	}
 }

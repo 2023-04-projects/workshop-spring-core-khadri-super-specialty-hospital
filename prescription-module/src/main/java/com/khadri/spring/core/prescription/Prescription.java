@@ -17,6 +17,8 @@ public class Prescription {
 	private List<Injection> injections = new ArrayList<>();
 
 	private List<Saline> salines = new ArrayList<>();
+	
+	private PatientType patientType;
 
 	@PostConstruct
 	public void init() {
@@ -55,5 +57,13 @@ public class Prescription {
 		for (Saline saline : salines) {
 			System.out.println("- Type: " + saline.getType() + ", Volume: " + saline.getVolume() + "ml");
 		}
+	}
+	
+	public PatientType getPatientType() {
+		return patientType;
+	}
+	
+	public void setPatientType(PatientType patientType) {
+		this.patientType = patientType;
 	}
 }
