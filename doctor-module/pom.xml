@@ -8,6 +8,11 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>doctor-module</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>doctor-module</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
 
 	<dependencies>
 		<dependency>
@@ -16,5 +21,12 @@
 			<version>6.1.2</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.khadri.spring.core</groupId>
+			<artifactId>
+				workshop-spring-core-khadri-super-specialty-hospital
+			</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
