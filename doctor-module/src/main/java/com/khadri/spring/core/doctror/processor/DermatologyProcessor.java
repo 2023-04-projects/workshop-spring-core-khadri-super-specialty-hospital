@@ -3,20 +3,26 @@ package com.khadri.spring.core.doctror.processor;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.khadri.spring.core.doctor.Doctor;
+import com.khadri.spring.core.prescription.Prescription;
+import com.khadri.spring.core.process.OutPatientProcessor;
+import com.khadri.spring.core.processor.InPatientProcessor;
 
-@Component("dermoProcessor")
 public class DermatologyProcessor implements Doctor {
 
 	private InPatientProcessor inPatientProcessor;
+
 	private OutPatientProcessor outPatientProcessor;
 
+	private Prescription prescription;
+
 	@Autowired
-	public DermatologyProcessor(InPatientProcessor inPatientProcessor, OutPatientProcessor outPatientProcessor) {
+	public DermatologyProcessor(InPatientProcessor inPatientProcessor, OutPatientProcessor outPatientProcessor,
+			Prescription prescription) {
 		this.inPatientProcessor = inPatientProcessor;
 		this.outPatientProcessor = outPatientProcessor;
+		this.prescription = prescription;
 	}
 
 	public void checkup(Scanner scanner) {
@@ -27,10 +33,11 @@ public class DermatologyProcessor implements Doctor {
 
 		if (days > 10) {
 			System.out.println("Patient has been suffering for a long time. Advanced treatment required.");
-			inPatientProcessor.process(inPatientProcessor);
-		} else
+			inPatientProcessor.process(prescription);
+		} else {
 			System.out.println("you will be treated as an outPatient.");
-		     outPatientProcessor.process(outPatientProcessor);
+			outPatientProcessor.process(prescription);
+		}
 
 	}
 
