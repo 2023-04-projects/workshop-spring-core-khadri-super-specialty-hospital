@@ -42,7 +42,6 @@ public class AppointmentProcessor {
 		System.out.println("Enter Patient Phone:");
 		String patientPhone = scanner.next();
 
-		System.out.println("Token number:");
 		int tokenNumber = new Random().nextInt(10000);
 		System.out.println("Token Number: " + tokenNumber);
 
