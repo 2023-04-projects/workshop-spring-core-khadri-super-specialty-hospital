@@ -10,6 +10,7 @@
 	<artifactId>container-module</artifactId>
 	<properties>
 		<java.version>17</java.version>
+
 	</properties>
 
 	<dependencies>
@@ -22,6 +23,11 @@
 			<groupId>com.khadri.spring.core</groupId>
 			<artifactId>doctor-module</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+		<groupId>com.khadri.spring.core</groupId>
+		<artifactId>appointment-module</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	<build>
