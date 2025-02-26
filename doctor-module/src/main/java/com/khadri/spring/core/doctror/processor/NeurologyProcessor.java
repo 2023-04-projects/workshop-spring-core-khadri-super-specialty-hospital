@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.khadri.spring.core.doctor.SpecialistDoctor;
 import com.khadri.spring.core.prescription.Prescription;
-import com.khadri.spring.core.process.OutPatientProcessor;
 import com.khadri.spring.core.processor.InPatientProcessor;
+import com.khadri.spring.core.processor.OutPatientProcessor;
 
 public class NeurologyProcessor implements SpecialistDoctor {
 

@@ -1,5 +1,5 @@
 package com.khadri.spring.core.prescription;
 
-public interface PatientType {
-
+public enum PatientType {
+	  INPATIENT, OUTPATIENT;
 }

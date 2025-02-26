@@ -10,60 +10,85 @@ import org.springframework.stereotype.Component;
 @Component
 public class Prescription {
 
-	private List<DermoPills> dermoPills = new ArrayList<>();
+    private List<DermoPills> dermoPills = new ArrayList<>();
+    private List<NeuroPills> neuroPills = new ArrayList<>();
+    private List<Injection> injections = new ArrayList<>();
+    private List<Saline> salines = new ArrayList<>();
+    private PatientType patientType;
 
-	private List<NeuroPills> neuroPills = new ArrayList<>();
+    @PostConstruct
+    public void init() {
+        dermoPills.add(new DermoPills("Clobazam", 50));
+        dermoPills.add(new DermoPills("Fluocinonide", 30));
 
-	private List<Injection> injections = new ArrayList<>();
+        neuroPills.add(new NeuroPills("Gabapentin", 100));
+        neuroPills.add(new NeuroPills("Pregabalin", 75));
 
-	private List<Saline> salines = new ArrayList<>();
-	
-	private PatientType patientType;
+        injections.add(new Injection("Insulin", 10));
+        injections.add(new Injection("Vitamin B12", 5));
 
-	@PostConstruct
-	public void init() {
-		dermoPills.add(new DermoPills("Clobazam", 50));
-		dermoPills.add(new DermoPills("Fluocinonide", 30));
+        salines.add(new Saline("Normal Saline", 500));
+        salines.add(new Saline("Ringer Lactate", 1000));
+    }
 
-		neuroPills.add(new NeuroPills("Gabapentin", 100));
-		neuroPills.add(new NeuroPills("Pregabalin", 75));
+    public void showPrescriptionDetails() {
+        System.out.println("Patient Type: " + patientType);
+        System.out.println("Prescription Details:");
 
-		injections.add(new Injection("Insulin", 10));
-		injections.add(new Injection("Vitamin B12", 5));
+        if (patientType == PatientType.OUTPATIENT) {
+            System.out.print("Dermo Pills: ");
+            printPills(dermoPills);
+            System.out.print("Neuro Pills: ");
+            printPills(neuroPills);
+        } else if (patientType == PatientType.INPATIENT) {
+            System.out.print("Injections: ");
+            printInjections(injections);
+            System.out.print("Salines: ");
+            printSalines(salines);
+        }
+    }
 
-		salines.add(new Saline("Normal Saline", 500));
-		salines.add(new Saline("Ringer Lactate", 1000));
-	}
+    private void printPills(List<? extends Object> pills) {
+        for (int i = 0; i < pills.size(); i++) {
+            if (pills.get(i) instanceof DermoPills) {
+                DermoPills pill = (DermoPills) pills.get(i);
+                System.out.print(pill.getName());
+            } else if (pills.get(i) instanceof NeuroPills) {
+                NeuroPills pill = (NeuroPills) pills.get(i);
+                System.out.print(pill.getName());
+            }
+            if (i < pills.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
 
-	public void showPrescriptionDetails() {
-		System.out.println("Prescription Details:");
+    private void printInjections(List<Injection> injections) {
+        for (int i = 0; i < injections.size(); i++) {
+            System.out.print(injections.get(i).getName());
+            if (i < injections.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
 
-		System.out.println("DermoPills:");
-		for (DermoPills pill : dermoPills) {
-			System.out.println("- Name: " + pill.getName() + ", Dosage: " + pill.getDosage() + "mg");
-		}
+    private void printSalines(List<Saline> salines) {
+        for (int i = 0; i < salines.size(); i++) {
+            System.out.print(salines.get(i).getType());
+            if (i < salines.size() - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println();
+    }
 
-		System.out.println("NeuroPills:");
-		for (NeuroPills pill : neuroPills) {
-			System.out.println("- Name: " + pill.getName() + ", Dosage: " + pill.getDosage() + "mg");
-		}
+    public PatientType getPatientType() {
+        return patientType;
+    }
 
-		System.out.println("Injections:");
-		for (Injection injection : injections) {
-			System.out.println("- Name: " + injection.getName() + ", Dosage: " + injection.getDosage() + "ml");
-		}
-
-		System.out.println("Salines:");
-		for (Saline saline : salines) {
-			System.out.println("- Type: " + saline.getType() + ", Volume: " + saline.getVolume() + "ml");
-		}
-	}
-	
-	public PatientType getPatientType() {
-		return patientType;
-	}
-	
-	public void setPatientType(PatientType patientType) {
-		this.patientType = patientType;
-	}
+    public void setPatientType(PatientType patientType) {
+        this.patientType = patientType;
+    }
 }
