@@ -6,8 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.khadri.spring.core.doctror.processor.DermatologyProcessor;
-import com.khadri.spring.core.doctror.processor.NeurologyProcessor;
+import com.khadri.spring.core.doctror.processor.InPatientProcessor;
+import com.khadri.spring.core.doctror.processor.OutPatientProcessor;
 
 @Configuration
 @ComponentScan(value = "com.khadri.spring.core")
@@ -19,13 +19,13 @@ public class DoctorConfig {
 	}
 
 	@Bean
-	public DermatologyProcessor dermatologyprocessor() {
-		return new DermatologyProcessor();
+	public InPatientProcessor inPatientProcessor() {
+		return new InPatientProcessor();
 	}
 
 	@Bean
-	public NeurologyProcessor neurologyprocessor() {
-		return new NeurologyProcessor();
+	public OutPatientProcessor outPatientProcessor() {
+		return new OutPatientProcessor();
 	}
 
 }

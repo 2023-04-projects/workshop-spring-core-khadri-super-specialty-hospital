@@ -7,7 +7,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import com.khadri.spring.core.config.DoctorConfig;
 import com.khadri.spring.core.doctror.processor.DermatologyProcessor;
+import com.khadri.spring.core.doctror.processor.InPatientProcessor;
 import com.khadri.spring.core.doctror.processor.NeurologyProcessor;
+import com.khadri.spring.core.doctror.processor.OutPatientProcessor;
 
 public class DoctorApp {
 
@@ -22,10 +24,18 @@ public class DoctorApp {
 
 		if (choice == 1) {
 			DermatologyProcessor dermatologyProcessor = context.getBean("dermoProcessor", DermatologyProcessor.class);
+			InPatientProcessor inPatientProcessor = context.getBean(InPatientProcessor.class);
+			OutPatientProcessor outPatientProcessor = context.getBean(OutPatientProcessor.class);
 			dermatologyProcessor.checkup(scanner);
+			inPatientProcessor.process(inPatientProcessor);
+			outPatientProcessor.process(outPatientProcessor);
 		} else if (choice == 2) {
 			NeurologyProcessor neurologyProcessor = context.getBean("neuroprocessor", NeurologyProcessor.class);
+			InPatientProcessor inPatientProcessor = context.getBean(InPatientProcessor.class);
+			OutPatientProcessor outPatientProcessor = context.getBean(OutPatientProcessor.class);
 			neurologyProcessor.checkup(scanner);
+			inPatientProcessor.process(inPatientProcessor);
+			outPatientProcessor.process(outPatientProcessor);
 		} else {
 			System.out.println("Invalid choice. Exiting.");
 		}
