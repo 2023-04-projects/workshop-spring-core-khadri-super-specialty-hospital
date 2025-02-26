@@ -12,9 +12,11 @@ public class AppointmentProcessor {
 	private DoctorDetails doctorDetails;
 	private Scanner scanner;
 
-	public AppointmentProcessor(DoctorDetails doctorDetails) {
+	public AppointmentProcessor(DoctorDetails doctorDetails, Scanner scanner) {
 		super();
 		this.doctorDetails = doctorDetails;
+		this.scanner = scanner;
+
 	}
 
 	public void processAppointment() {

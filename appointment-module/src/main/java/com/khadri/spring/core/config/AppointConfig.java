@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(value = "com.khadri.spring.core")
 public class AppointConfig {
-	
+
 	@Bean
 	public Scanner scanner() {
 		return new Scanner(System.in);
