@@ -10,6 +10,7 @@ import com.khadri.spring.core.doctor.Doctor;
 public class AppointmentProcessor {
 
 	private DoctorDetails doctorDetails;
+	private Scanner scanner;
 
 	public AppointmentProcessor(DoctorDetails doctorDetails) {
 		super();
@@ -17,7 +18,6 @@ public class AppointmentProcessor {
 	}
 
 	public void processAppointment() {
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("Available Doctors: ");
 
 		for (Doctor doctor : doctorDetails.getDoctors()) {
