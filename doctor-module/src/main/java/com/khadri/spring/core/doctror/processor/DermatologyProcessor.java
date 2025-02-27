@@ -5,9 +5,10 @@ import java.util.Scanner;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.khadri.spring.core.doctor.SpecialistDoctor;
+import com.khadri.spring.core.prescription.PatientType;
 import com.khadri.spring.core.prescription.Prescription;
-import com.khadri.spring.core.process.OutPatientProcessor;
 import com.khadri.spring.core.processor.InPatientProcessor;
+import com.khadri.spring.core.processor.OutPatientProcessor;
 
 public class DermatologyProcessor implements SpecialistDoctor {
 
@@ -35,9 +36,11 @@ public class DermatologyProcessor implements SpecialistDoctor {
 
 		if (days > 10) {
 			System.out.println("Patient has been suffering for a long time. Advanced treatment required.");
+	        prescription.setPatientType(PatientType.INPATIENT); 
 			inPatientProcessor.process(prescription);
 		} else {
 			System.out.println("you will be treated as an outPatient.");
+			 prescription.setPatientType(PatientType.OUTPATIENT);
 			outPatientProcessor.process(prescription);
 		}
 
