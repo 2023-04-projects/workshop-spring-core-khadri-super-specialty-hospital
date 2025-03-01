@@ -20,9 +20,11 @@ public class DermatologyPublisher implements SpecialistDoctor {
 	public void checkup() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Dermatology Checkup Started...");
+		
+		
 		System.out.println("How long have you been suffering? (in days):");
-		int days = 2;
-
+		int days = scanner.nextInt();
+		
 		if (days > 10) {
 			System.out.println("Patient has been suffering for a long time. Advanced treatment required.");
 			InPrescriptionEvent event = new InPrescriptionEvent(this);
