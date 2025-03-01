@@ -23,7 +23,7 @@ public class NeurologyPublisher implements SpecialistDoctor {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Neurology Checkup Started...");
 		System.out.println("How long have you been suffering? (in days):");
-		int days = 11; // hardcoded here but need to read as a input from user
+		int days = scanner.nextInt();
 
 		if (days > 10) {
 			System.out.println("Patient has been suffering for a long time. Advanced treatment required.");

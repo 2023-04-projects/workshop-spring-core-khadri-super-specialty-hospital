@@ -16,7 +16,7 @@ public class DermatologyDoctor implements Doctor {
 
 	@Value("Dr.Allen")
 	private String name;
-	
+
 	@Value("Determotologist")
 	private String Speciatlist;
 

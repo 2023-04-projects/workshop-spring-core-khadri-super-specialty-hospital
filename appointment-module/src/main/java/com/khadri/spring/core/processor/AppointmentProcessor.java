@@ -62,7 +62,6 @@ public class AppointmentProcessor {
 			System.out.println("Specilization in : " + selectedDoctor.getSpeciatlist());
 		});
 
-		scanner.close();
 		return selectedDoctorOptional.get();
 	}
 }

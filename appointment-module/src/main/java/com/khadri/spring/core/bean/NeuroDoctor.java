@@ -19,7 +19,7 @@ public class NeuroDoctor implements Doctor {
 
 	@Value("Neuro")
 	private String Speciatlist;
-	
+
 	@Value("10")
 	private int experience;
 
