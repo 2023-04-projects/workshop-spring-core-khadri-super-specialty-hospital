@@ -8,15 +8,11 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>appointment-module</artifactId>
-	<properties>
-		<java.version>17</java.version>
-	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
-			<version>6.1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.khadri.spring.core</groupId>
@@ -44,12 +40,12 @@
 			<version>1.18.22</version>
 		</dependency>
 	</dependencies>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.13.0</version>
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
@@ -57,5 +53,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
